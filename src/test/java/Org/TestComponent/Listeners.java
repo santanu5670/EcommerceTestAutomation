@@ -1,7 +1,7 @@
 package Org.TestComponent;
 
-import Org.Utilities.ReportsConfigaration.ExtentFactory;
-import Org.Utilities.ReportsConfigaration.ExtentReporterNG;
+import Org.Utilities.ReportsConfigaration.ExtentReportConfig.ExtentFactory;
+import Org.Utilities.ReportsConfigaration.ExtentReportConfig.ExtentReporterNG;
 import Org.Utilities.ReportsConfigaration.ScreenshotsConfig.CaptureScreenshots;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
