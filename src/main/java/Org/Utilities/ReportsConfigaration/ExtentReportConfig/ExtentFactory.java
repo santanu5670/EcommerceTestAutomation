@@ -1,4 +1,4 @@
-package Org.Utilities.ReportsConfigaration;
+package Org.Utilities.ReportsConfigaration.ExtentReportConfig;
 
 import com.aventstack.extentreports.ExtentTest;
 

@@ -1,6 +1,6 @@
 package Org.Utilities.UI;
 
-import Org.Utilities.ReportsConfigaration.ExtentFactory;
+import Org.Utilities.ReportsConfigaration.ExtentReportConfig.ExtentFactory;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
