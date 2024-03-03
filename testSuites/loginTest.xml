@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="methods" thread-count="5" >
+<!--<suite name="Suite" thread-count="5">-->
+    <listeners>
+        <listener class-name="Org.TestComponent.Listeners"/>
+    </listeners>
+    <!-- thread-count="5" means maximum 5 methods run parallely at a time -->
+    <test name="Login Test">
+        <classes>
+            <class name="Org.TestCases.LoginPageValidation.LoginTest"/>
+            <class name="Org.TestCases.LoginPageValidation.InvalidLoginTest"/>
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
