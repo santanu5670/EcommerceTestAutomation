@@ -12,22 +12,24 @@ import java.io.IOException;
 
 public class LoginPage extends UIOperations {
     WebDriver driver;
+    public AddToCartFromHomePage addProductFromHomePage;
+
     public LoginPage(WebDriver driver){
         super(driver);
         this.driver = driver;
         PageFactory.initElements(driver,this);
     }
     @FindBy(xpath = "//input[@id=\"user-name\"]")
-    protected WebElement Username_Input;
+    private WebElement Username_Input;
 
     @FindBy(xpath = "//input[@id=\"password\"]")
-    protected WebElement Password_Input;
+    private WebElement Password_Input;
 
     @FindBy(xpath = "//input[@id=\"login-button\"]")
-    protected WebElement Login_Button;
+    private WebElement Login_Button;
 
     @FindBy(xpath = "//div[@class=\"error-message-container error\"]/child::h3")
-    protected WebElement Login_ErrorMessage;
+    private WebElement Login_ErrorMessage;
 
    public void Login(String userName, String passWord){
        CaptureScreenshots capture = new CaptureScreenshots(driver);
@@ -47,6 +49,12 @@ public class LoginPage extends UIOperations {
        String url = PropertiesDataExtract.PropDataExtract().getProperty("url");
        navigateToURL(url);
    }
+
+    public AddToCartFromHomePage addProductFromHomePage(String productName){
+        addProductFromHomePage = new AddToCartFromHomePage(driver);
+        addProductFromHomePage.ProductAddToCart(productName);
+        return addProductFromHomePage;
+    }
 
 
 }

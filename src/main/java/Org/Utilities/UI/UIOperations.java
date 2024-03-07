@@ -1,6 +1,7 @@
 package Org.Utilities.UI;
 
 import Org.Utilities.ReportsConfigaration.ExtentReportConfig.ExtentFactory;
+import Org.Utilities.ReportsConfigaration.ScreenshotsConfig.CaptureScreenshots;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 public class UIOperations{
@@ -151,6 +153,35 @@ public class UIOperations{
             }
         }
         return byValue;
+    }
+
+    public WebElement usingXpath(String value){
+        WebElement element = null;
+        try {
+            if(value != null){
+                element = driver.findElement(By.xpath(value));
+            }
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+        return element;
+    }
+
+    public synchronized void dataSeparation(String cellValue, String element, String screenshotname){
+        CaptureScreenshots capture = new CaptureScreenshots(driver);
+        if(cellValue.contains(";")){
+            String[] newCellValues = cellValue.split(";");
+            for (String newCellValue : newCellValues) {
+                if (newCellValue != null) {
+                    click(usingXpath(element.replace("#ProductName#", newCellValue)));
+                    capture.getAllStepFullPageScreenshot(screenshotname);
+                }
+            }
+        }
+        else {
+            click(usingXpath(element.replace("#ProductName#",cellValue)));
+            capture.getAllStepFullPageScreenshot(screenshotname);
+        }
     }
 
     public synchronized int increment(){

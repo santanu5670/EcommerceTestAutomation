@@ -10,6 +10,7 @@
         <classes>
             <class name="Org.TestCases.LoginPageValidation.LoginTest"/>
             <class name="Org.TestCases.LoginPageValidation.InvalidLoginTest"/>
+            <class name="Org.TestCases.SubmitOrder.AddToCart"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
