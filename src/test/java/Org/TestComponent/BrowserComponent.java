@@ -2,6 +2,7 @@ package Org.TestComponent;
 
 import Org.PageObject.LoginPage;
 import Org.Utilities.DataReader.PropertiesDataExtract;
+import Org.Utilities.ReportsConfigaration.ScreenshotsConfig.CaptureScreenshots;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,8 +18,10 @@ import java.time.Duration;
 
 public class BrowserComponent {
 
-    public WebDriver driver;
-    public LoginPage loginPage;
+    protected WebDriver driver;
+
+    private CaptureScreenshots captureScreenshots;
+    protected LoginPage loginPage;
 
     public WebDriver initializeDriver() throws IOException {
         String browserName = PropertiesDataExtract.PropDataExtract().getProperty("browser");
@@ -67,7 +70,8 @@ public class BrowserComponent {
     @BeforeMethod(alwaysRun = true)
     public LoginPage lunchApplicationSite() throws IOException {
         driver = initializeDriver();
-        loginPage = new LoginPage(driver);
+        captureScreenshots = new CaptureScreenshots(driver);
+        loginPage = new LoginPage(driver,captureScreenshots);
         loginPage.launchApplication();
         return loginPage;
     }

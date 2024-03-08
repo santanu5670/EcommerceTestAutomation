@@ -14,9 +14,9 @@ import org.testng.ITestResult;
 import java.util.List;
 
 public class Listeners extends BrowserComponent implements ITestListener {
-    CaptureScreenshots capture = new CaptureScreenshots(driver);
-    ExtentTest test;
-    public ExtentReports extent = ExtentReporterNG.getReportObject();
+    private CaptureScreenshots capture = new CaptureScreenshots(driver);
+    private ExtentTest test;
+    private ExtentReports extent = ExtentReporterNG.getReportObject();
 
     @Override
     public synchronized void onTestStart(ITestResult result) {

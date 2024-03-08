@@ -8,19 +8,21 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.Arrays;
 import java.util.List;
 
-public class AddToCartFromHomePage extends UIOperations {
-    WebDriver driver;
-    public AddToCartFromHomePage(WebDriver driver){
+public class AddToCartFromHomePage extends UIOperations{
+    private WebDriver driver;
+    private CaptureScreenshots capture;
+
+    public AddToCartFromHomePage(WebDriver driver,CaptureScreenshots capture){
         super(driver);
         this.driver = driver;
+        this.capture = capture;
         PageFactory.initElements(driver,this);
     }
 
     private String AddToCart_Button = "//div[text()=\"#ProductName#\"]/parent::a/parent::div/following-sibling::div/button[text()=\"Add to cart\"]";
 
     public void ProductAddToCart(String productName){
-        CaptureScreenshots capture = new CaptureScreenshots(driver);
         printURL();
-        dataSeparation(productName,AddToCart_Button,"AddToCart_");
+        dataSeparation(productName,AddToCart_Button,"AddToCart_",capture);
     }
 }
