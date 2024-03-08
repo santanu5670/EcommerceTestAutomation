@@ -3,7 +3,7 @@ package Org.Utilities.Assert;
 import org.testng.asserts.SoftAssert;
 
 public class SoftAssertion {
-    SoftAssert Assert = new SoftAssert();
+    private SoftAssert Assert = new SoftAssert();
     public void IsTrue(boolean actualValue,String errorMessage){
         try {
             Assert.assertTrue(actualValue);

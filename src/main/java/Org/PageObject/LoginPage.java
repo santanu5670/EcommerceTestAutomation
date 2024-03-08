@@ -11,12 +11,14 @@ import org.openqa.selenium.support.PageFactory;
 import java.io.IOException;
 
 public class LoginPage extends UIOperations {
-    WebDriver driver;
-    public AddToCartFromHomePage addProductFromHomePage;
+    private WebDriver driver;
+    private CaptureScreenshots capture;
+    private AddToCartFromHomePage addProductFromHomePage;
 
-    public LoginPage(WebDriver driver){
+    public LoginPage(WebDriver driver,CaptureScreenshots capture){
         super(driver);
         this.driver = driver;
+        this.capture = capture;
         PageFactory.initElements(driver,this);
     }
     @FindBy(xpath = "//input[@id=\"user-name\"]")
@@ -32,7 +34,6 @@ public class LoginPage extends UIOperations {
     private WebElement Login_ErrorMessage;
 
    public void Login(String userName, String passWord){
-       CaptureScreenshots capture = new CaptureScreenshots(driver);
        printURL();
        clearAndSend(Username_Input,userName);
        clearAndSend(Password_Input,passWord);
@@ -51,7 +52,7 @@ public class LoginPage extends UIOperations {
    }
 
     public AddToCartFromHomePage addProductFromHomePage(String productName){
-        addProductFromHomePage = new AddToCartFromHomePage(driver);
+        addProductFromHomePage = new AddToCartFromHomePage(driver,capture);
         addProductFromHomePage.ProductAddToCart(productName);
         return addProductFromHomePage;
     }

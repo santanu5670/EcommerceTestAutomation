@@ -10,12 +10,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 public class UIOperations{
-    protected int count = 0;
-    WebDriver driver;
+    private int count = 0;
+    private WebDriver driver;
 
     public UIOperations(WebDriver driver){
         this.driver = driver;
@@ -167,8 +166,7 @@ public class UIOperations{
         return element;
     }
 
-    public synchronized void dataSeparation(String cellValue, String element, String screenshotname){
-        CaptureScreenshots capture = new CaptureScreenshots(driver);
+    public synchronized void dataSeparation(String cellValue, String element, String screenshotname,CaptureScreenshots capture){
         if(cellValue.contains(";")){
             String[] newCellValues = cellValue.split(";");
             for (String newCellValue : newCellValues) {

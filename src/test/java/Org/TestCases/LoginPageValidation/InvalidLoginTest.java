@@ -12,11 +12,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class InvalidLoginTest extends BrowserComponent {
-
-    UIOperations ui = new UIOperations(driver);
-    String msg = "Epic sadface: Username and password do not match any user in this service";
-    String reportFileLocation = "C://Users//santa//IdeaProjects//Santanu_SwagLabs//src//test//java//Org//data//RegistrationData.xlsx";
-    Assertion assertion = new Assertion();
+    private String msg = "Epic sadface: Username and password do not match any user in this service";
+    private String reportFileLocation = "C://Users//santa//IdeaProjects//Santanu_SwagLabs//src//test//java//Org//data//RegistrationData.xlsx";
+    private Assertion assertion = new Assertion();
     @Test(dataProvider = "empRegistrationData")
     public void inValidCredentialsValidation(HashMap<String,String> input){
         loginPage.Login(input.get("UserName"),input.get("Password"));

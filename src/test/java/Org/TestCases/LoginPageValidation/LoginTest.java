@@ -10,9 +10,7 @@ import java.util.List;
 import Org.Utilities.UI.UIOperations;
 
 public class LoginTest extends BrowserComponent {
-
-    UIOperations ui = new UIOperations(driver);
-    String reportFileLocation = "C://Users//santa//IdeaProjects//Santanu_SwagLabs//src//test//java//Org//data//RegistrationData.xlsx";
+    private String reportFileLocation = "C://Users//santa//IdeaProjects//Santanu_SwagLabs//src//test//java//Org//data//RegistrationData.xlsx";
     @Test(dataProvider = "empRegistrationData")
     public void login(HashMap<String,String> input){
         loginPage.Login(input.get("UserName"),input.get("Password"));

@@ -19,7 +19,7 @@ import java.util.List;
 public class CaptureScreenshots {
     //    private static List<String> screenshots = new ArrayList<>();
     private static ThreadLocal<List<String>> screenshots = ThreadLocal.withInitial(ArrayList::new);
-    WebDriver driver;
+    private WebDriver driver;
 
 
     public CaptureScreenshots(WebDriver driver){
