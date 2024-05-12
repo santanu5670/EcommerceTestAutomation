@@ -8,9 +8,10 @@
     <!-- thread-count="5" means maximum 5 methods run parallely at a time -->
     <test name="Login Test">
         <classes>
-            <class name="Org.TestCases.LoginPageValidation.LoginTest"/>
-            <class name="Org.TestCases.LoginPageValidation.InvalidLoginTest"/>
-            <class name="Org.TestCases.SubmitOrder.AddToCart"/>
+            <!--<class name="Org.TestCases.LoginPageValidation.LoginTest"/>
+            <class name="Org.TestCases.LoginPageValidation.InvalidLoginTest"/>-->
+            <class name="Org.TestCases.SubmitOrder.AddToCartHomePageTest"/>
+<!--            <class name="Org.TestCases.SubmitOrder.CartTest"/>-->
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

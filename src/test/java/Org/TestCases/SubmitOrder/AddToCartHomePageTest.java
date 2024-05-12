@@ -11,8 +11,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-public class AddToCart extends BrowserComponent {
+public class AddToCartHomePageTest extends BrowserComponent {
     private String reportFileLocation = "C://Users//santa//IdeaProjects//Santanu_SwagLabs//src//test//java//Org//data//RegistrationData.xlsx";
+    private List<String> productPriceOnHomePage;
 
     @Test(dataProvider = "empRegistrationData")
     public void addProductVerification(HashMap<String,String> input){

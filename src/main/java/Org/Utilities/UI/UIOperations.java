@@ -10,11 +10,14 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class UIOperations{
     private int count = 0;
     private WebDriver driver;
+    private List<String> seperateData = new ArrayList<String>();
 
     public UIOperations(WebDriver driver){
         this.driver = driver;
@@ -166,20 +169,20 @@ public class UIOperations{
         return element;
     }
 
-    public synchronized void dataSeparation(String cellValue, String element, String screenshotname,CaptureScreenshots capture){
+    public synchronized List<String> dataSeparation(String cellValue){
+
         if(cellValue.contains(";")){
             String[] newCellValues = cellValue.split(";");
             for (String newCellValue : newCellValues) {
                 if (newCellValue != null) {
-                    click(usingXpath(element.replace("#ProductName#", newCellValue)));
-                    capture.getAllStepFullPageScreenshot(screenshotname);
+                    seperateData.add(newCellValue);
                 }
             }
         }
         else {
-            click(usingXpath(element.replace("#ProductName#",cellValue)));
-            capture.getAllStepFullPageScreenshot(screenshotname);
+            seperateData.add(cellValue);
         }
+        return seperateData;
     }
 
     public synchronized int increment(){
