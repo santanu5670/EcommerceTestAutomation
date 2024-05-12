@@ -11,7 +11,7 @@
             <!--<class name="Org.TestCases.LoginPageValidation.LoginTest"/>
             <class name="Org.TestCases.LoginPageValidation.InvalidLoginTest"/>-->
             <class name="Org.TestCases.SubmitOrder.AddToCartHomePageTest"/>
-<!--            <class name="Org.TestCases.SubmitOrder.CartTest"/>-->
+            <class name="Org.TestCases.SubmitOrder.CartTest"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
