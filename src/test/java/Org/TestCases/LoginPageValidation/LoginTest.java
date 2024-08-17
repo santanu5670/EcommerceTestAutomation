@@ -19,9 +19,9 @@ public class LoginTest extends BrowserComponent {
     @DataProvider(name="empRegistrationData")
     public Object[][] registrationData() throws IOException {
         List<HashMap<String,String>> dataMapList = ExcelDataReader.getDataFromExcel(reportFileLocation, "Details");
-        Object[][] dataArray = new Object[dataMapList.size()][1]; // Assuming each row in the Excel corresponds to an Object array
+        Object[][] dataArray = new Object[dataMapList.size()][1];
         for (int i = 0; i < dataMapList.size(); i++) {
-            dataArray[i][0] = dataMapList.get(i); // Each row in dataArray will contain a HashMap
+            dataArray[i][0] = dataMapList.get(i);
         }
         return dataArray;
     }

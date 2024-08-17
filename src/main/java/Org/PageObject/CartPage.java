@@ -4,6 +4,7 @@ import Org.Utilities.Assert.Assertion;
 import Org.Utilities.Assert.SoftAssertion;
 import Org.Utilities.ReportsConfigaration.ScreenshotsConfig.CaptureScreenshots;
 import Org.Utilities.UI.UIOperations;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

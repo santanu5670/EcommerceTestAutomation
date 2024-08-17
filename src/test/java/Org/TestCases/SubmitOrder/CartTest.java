@@ -1,6 +1,7 @@
 package Org.TestCases.SubmitOrder;
 
 import Org.TestComponent.BrowserComponent;
+import Org.Utilities.Assert.Assertion;
 import Org.Utilities.DataReader.ExcelDataReader;
 import Org.Utilities.ReportsConfigaration.ScreenshotsConfig.CaptureScreenshots;
 import Org.Utilities.UI.UIOperations;
@@ -13,8 +14,9 @@ import java.util.List;
 
 public class CartTest extends BrowserComponent {
     private String reportFileLocation = "C://Users//santa//IdeaProjects//Santanu_SwagLabs//src//test//java//Org//data//RegistrationData.xlsx";
-    private List<String> productPriceOnHomePage;
-    private List<String> productPriceFromCartPage;
+    public List<String> productPriceOnHomePage;
+    public List<String> productPriceFromCartPage;
+    private Assertion hardAssert = new Assertion();
 
     @Test(dataProvider = "empRegistrationData")
     public void addProductVerification(HashMap<String,String> input){
@@ -27,6 +29,7 @@ public class CartTest extends BrowserComponent {
         for(String productPriceFromCartPage : productPriceFromCartPage){
             System.out.println(productPriceFromCartPage);
         }
+        hardAssert.compareListAndPrintDifferences(productPriceOnHomePage,productPriceFromCartPage);
     }
 
     @DataProvider(name="empRegistrationData")
