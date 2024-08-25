@@ -9,11 +9,16 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
+import java.util.List;
 
 public class LoginPage extends UIOperations {
     private WebDriver driver;
     private CaptureScreenshots capture;
-    private AddToCartFromHomePage addProductFromHomePage;
+    private AddToCartFromHomePage addToCartFromHomePage;
+    private CartPage cartPage;
+
+    private List<String> ProductPriceFromHomePage;
+    private List<String> ProductPriceFromCartPage;
 
     public LoginPage(WebDriver driver,CaptureScreenshots capture){
         super(driver);
@@ -51,11 +56,15 @@ public class LoginPage extends UIOperations {
        navigateToURL(url);
    }
 
-    public AddToCartFromHomePage addProductFromHomePage(String productName){
-        addProductFromHomePage = new AddToCartFromHomePage(driver,capture);
-        addProductFromHomePage.ProductAddToCart(productName);
-        return addProductFromHomePage;
+    public List<String> addProductFromHomePage(String productName){
+        addToCartFromHomePage = new AddToCartFromHomePage(driver,capture);
+        ProductPriceFromHomePage = addToCartFromHomePage.ProductAddToCart(productName);
+        return ProductPriceFromHomePage;
     }
 
-
+    public List<String> VerifyCartPage(String productName){
+        cartPage = new CartPage(driver,capture);
+        ProductPriceFromCartPage = cartPage.VerifyCartPage(productName);
+        return ProductPriceFromCartPage;
+    }
 }

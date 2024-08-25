@@ -17,7 +17,6 @@ public class ExtentReporterNG {
             extent = new ExtentReports();
             extent.setSystemInfo("Tester", "Santanu");
             extent.attachReporter(reporter);
-             /*To open an ExtenReport Automatically use below line"*/
             /*Desktop.getDesktop().browse(new File(System.getProperty("user.dir")+"\\Reports\\index.html").toURI());*/
         }catch (IOException e) {
             e.printStackTrace();

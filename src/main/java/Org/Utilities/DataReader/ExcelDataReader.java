@@ -40,9 +40,9 @@ public class ExcelDataReader {
         for (int i = 0; i < sheets; i++) {
             if (workbook.getSheetName(i).equalsIgnoreCase(sheetName)) {
                 XSSFSheet sheet = workbook.getSheetAt(i);
-                int rowCount = sheet.getPhysicalNumberOfRows(); //to get how many rows present in a sheet
+                int rowCount = sheet.getPhysicalNumberOfRows();
                 XSSFRow row = sheet.getRow(0);
-                int colCount = row.getLastCellNum(); //To get how many column present in a sheet using counting no of cells in a particular row
+                int colCount = row.getLastCellNum();
                 for(int j=0;j<rowCount-1;j++) {
                     row=sheet.getRow(j+1);
                     /*HashMap<String,String> data = new HashMap<>();*/
@@ -52,7 +52,7 @@ public class ExcelDataReader {
                         data.put(formatter.formatCellValue(cellKey),formatter.formatCellValue(cellValue));
                     }
                     dataMapList.add(new HashMap<>(data));
-                    data.clear();  /* using clear for better memory efficiency */
+                    data.clear();
                 }
             }
         }

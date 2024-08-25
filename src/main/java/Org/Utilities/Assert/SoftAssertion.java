@@ -1,5 +1,7 @@
 package Org.Utilities.Assert;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import org.testng.asserts.SoftAssert;
 
 public class SoftAssertion {
@@ -102,6 +104,10 @@ public class SoftAssertion {
             System.out.println("Expected Value: "+expectedValue);
             throw new AssertionError(errorMessage, ex);
         }
+    }
+
+    public void assertAll(){
+        Assert.assertAll();
     }
 
 }
