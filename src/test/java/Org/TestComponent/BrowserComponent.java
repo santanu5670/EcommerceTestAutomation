@@ -24,8 +24,7 @@ public class BrowserComponent {
     protected LoginPage loginPage;
 
     public WebDriver initializeDriver() throws IOException {
-        String browserName = PropertiesDataExtract.PropDataExtract().getProperty("browser");
-
+        String browserName = System.getProperty("browser")!=null ? System.getProperty("browser") : PropertiesDataExtract.PropDataExtract().getProperty("browser");
         if(browserName.equalsIgnoreCase("chrome")){
 //            /*WebDriverManager.chromedriver().setup();*/
             driver = new ChromeDriver();
