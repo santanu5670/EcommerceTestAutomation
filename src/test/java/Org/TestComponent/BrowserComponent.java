@@ -4,8 +4,10 @@ import Org.PageObject.LoginPage;
 import Org.Utilities.DataReader.PropertiesDataExtract;
 import Org.Utilities.ReportsConfigaration.ScreenshotsConfig.CaptureScreenshots;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
@@ -25,18 +27,22 @@ public class BrowserComponent {
 
     public WebDriver initializeDriver() throws IOException {
         String browserName = System.getProperty("browser")!=null ? System.getProperty("browser") : PropertiesDataExtract.PropDataExtract().getProperty("browser");
-        if(browserName.equalsIgnoreCase("chrome")){
-//            /*WebDriverManager.chromedriver().setup();*/
-            driver = new ChromeDriver();
-        } else if (browserName.equalsIgnoreCase("edge")) {
+        if(browserName.contains("chrome")){
+            ChromeOptions options = new ChromeOptions();
+            if(browserName.contains("headless"))
+                options.addArguments("headless");
+            /*WebDriverManager.chromedriver().setup();*/
+            driver = new ChromeDriver(options);
+        } else if (browserName.contains("edge")) {
             WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();
-        } else if (browserName.equalsIgnoreCase("firefox")) {
+        } else if (browserName.contains("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         }
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        /*driver.manage().window().setSize(new Dimension(14410,900));*///full screen
         driver.manage().window().maximize();
         return driver;
     }
