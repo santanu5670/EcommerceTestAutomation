@@ -52,6 +52,7 @@ public class LoginPage extends UIOperations {
    }
 
    public void launchApplication() throws IOException {
+//       String url = System.getProperty("url")!=null ? System.getProperty("url") : PropertiesDataExtract.PropDataExtract().getProperty("url");
        String url = PropertiesDataExtract.PropDataExtract().getProperty("url");
        navigateToURL(url);
    }
